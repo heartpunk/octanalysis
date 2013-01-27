@@ -1,8 +1,11 @@
 require 'rubygems'
 require 'github_api'
 
-puts "what is thine password: "
-password = gets
+handle = File.new("/dev/tty")
+print "what is thine password: "
+password = handle.gets
+handle.close
+
 github = Github.new :login => ARGV[0], :password => password
 
 pulls = []
